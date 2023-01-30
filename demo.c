@@ -15,7 +15,7 @@ struct {
     __uint(pinning, LIBBPF_PIN_BY_NAME);
 } uid_permission_map SEC(".maps");
 
-SEC("cgroup/sock_acreate")
+SEC("cgroup/sock_create")
 int inet_socket_create(struct bpf_sock *sk) {
     u64 gid_uid = bpf_get_current_uid_gid();
 
